@@ -1,5 +1,9 @@
 @import './variables.scss';
 
 .App {
-  background-color: black;
+  background-color: white;
+
+  h1 {
+    font-family: 'Open Sans', sans-serif;
+  }
 }
