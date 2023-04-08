@@ -10,6 +10,12 @@
     overflow-y: scroll;
 
     &::-webkit-scrollbar {
-        display: none;
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $GreyFontColor;
+        height: 10px;
+        border-radius: 12px;
     }
 }
