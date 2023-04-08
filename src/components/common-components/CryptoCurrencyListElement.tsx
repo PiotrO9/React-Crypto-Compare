@@ -1,8 +1,8 @@
-
+import './CryptoCurrencyListElement.scss'
 
 function CryptoCurrencyListElement(props) {
     return (
-        <li>{props.name}</li>
+        <li><img src={props.image} /><p>{props.name}</p></li>
     )
 }
 

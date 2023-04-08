@@ -1,4 +1,5 @@
 import { useRef } from "react"
+import './CryptoSearch.scss'
 
 function CryptoSearch() {
     return (
