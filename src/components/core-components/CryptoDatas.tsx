@@ -1,7 +1,9 @@
 import './CryptoDatas.scss'
 import ChartDatas from './ChartDatas'
 import { ChartData } from 'chart.js'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { GetCoinMarketChart } from '../../utils/CryptoUtils'
+import MarketChartPoint from '../../types/MarketChartPoint'
 
 function CryptoDatas() {
     const [UserDatas, setUserDatas] = useState({
@@ -20,6 +22,34 @@ function CryptoDatas() {
             },
         ],
     });
+
+    useEffect(() => {
+        GetCoinMarketChart("bitcoin", "usd", 2).then(res => {
+            const newDatas = {
+                labels: res.map(item => item.timestamp),
+                datasets: [
+                    {
+                        label: "Datas",
+                        data: res.map(item => item.price),
+                        backgroundColor: [
+                            "rgba(75,192,192,1)",
+                            "#ecf0f1",
+                            "#50AF95",
+                            "#f3ba2f",
+                            "#2a71d0",
+                          ],
+                    },
+                ],
+            }
+
+            setUserDatas(newDatas)
+        });
+        
+    }, [])
+
+    useEffect(() => {
+        console.log(123)
+    }, [UserDatas]);
 
     return (
         <main>
