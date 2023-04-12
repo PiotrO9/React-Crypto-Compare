@@ -5,7 +5,6 @@ function getTimestamps(marketData: Array<MarketChartPoint>): Array<string> {
 
     const timestamps: string[] = marketData.map(point => new Date(point.timestamp).toLocaleTimeString());
 
-    console.log(timestamps)
     return timestamps;
 }
 

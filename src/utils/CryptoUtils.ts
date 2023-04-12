@@ -7,7 +7,7 @@ export default async function GetCoinsList() {
     return res.json()
 }
 
-export async function GetCoinMarketChart(coin: string, currency: string, decimation: number) {
+export const GetCoinMarketChart = async (coin: string, currency: string, decimation: number): Promise<Array<MarketChartPoint>> => {
     const res = await fetch(`https://api.coingecko.com/api/v3/coins/${coin}/market_chart?id=${coin}&vs_currency=${currency}&days=1`);
     const data = await res.json();
 
@@ -16,5 +16,5 @@ export async function GetCoinMarketChart(coin: string, currency: string, decimat
         price: point[1]
     }));
 
-    return decimateArray(marketChart, 1, decimation)
+    return decimateArray(marketChart, 1, decimation) as Array<MarketChartPoint>
 }

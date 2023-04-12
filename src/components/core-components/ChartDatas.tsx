@@ -12,39 +12,27 @@ type Props = {
 }
 
 function ChartDatas({datas}: Props) {
-    const options = {
-        plugins: {
-            tooltip: {
-                callbacks: {
-                    label: (context) => {
-
-                    }
-                }
-            }
-        }
-    }
-
-    useEffect(() => {
-        const tmp: Coin = { id: "bitcoin", symbol: "123", current_price: 123, image: "123", name: "bitcoin" }
-    })
-
-    return (
-        <Line 
-        datasetIdKey='id'
-        data={datas}
-        options={{
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        label: (context) => {
-                            return "123"
+    console.log(datas)
+    
+    if(datas != null) {
+        return (
+            <Line 
+            datasetIdKey='id'
+            data={datas}
+            options={{
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: (context) => {
+                                return "123"
+                            }
                         }
                     }
                 }
-            }
-        }}
-        />
-    )
+            }}
+            />
+        )
+    }
 }
 
 export default ChartDatas
