@@ -11,14 +11,20 @@ type Props = {
 }
 
 function ChartDatas({datas}: Props) {
+    const options = {
+        datasets: {
+            line: {
+                backgroundColor: "red"
+            },
+        },
+    }
+
     useEffect(() => {
         const tmp: Coin = { id: "bitcoin", symbol: "123", current_price: 123, image: "123", name: "bitcoin" }
-
-        //GetCoinMarketChart("bitcoin", "pln", 2).then(res => console.log(res))
     })
 
     return (
-        <Line datasetIdKey='id' data={datas} />
+        <Line datasetIdKey='id' data={datas} options={options}/>
     )
 }
 
