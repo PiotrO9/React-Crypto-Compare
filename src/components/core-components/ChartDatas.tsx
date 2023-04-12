@@ -1,10 +1,11 @@
-import { ChartData, Chart, CategoryScale, LinearScale, PointElement, LineElement } from 'chart.js'
+import { ChartData, Chart, CategoryScale, LinearScale, PointElement, LineElement, Tooltip, plugins } from 'chart.js'
 import { useEffect } from 'react';
 import { Line } from 'react-chartjs-2'
 import { GetCoinMarketChart } from '../../utils/CryptoUtils'
 import Coin from '../../types/Coin';
+import { callback } from 'chart.js/dist/helpers/helpers.core';
 
-Chart.register(CategoryScale, LinearScale, PointElement, LineElement);
+Chart.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip );
 
 type Props = {
     datas: ChartData<'line'>;
@@ -12,11 +13,15 @@ type Props = {
 
 function ChartDatas({datas}: Props) {
     const options = {
-        datasets: {
-            line: {
-                backgroundColor: "red"
-            },
-        },
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    label: (context) => {
+
+                    }
+                }
+            }
+        }
     }
 
     useEffect(() => {
@@ -24,7 +29,21 @@ function ChartDatas({datas}: Props) {
     })
 
     return (
-        <Line datasetIdKey='id' data={datas} options={options}/>
+        <Line 
+        datasetIdKey='id'
+        data={datas}
+        options={{
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: (context) => {
+                            return "123"
+                        }
+                    }
+                }
+            }
+        }}
+        />
     )
 }
 

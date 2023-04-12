@@ -8,17 +8,18 @@ import getTimestamps from '../../utils/GetTimeStamps'
 
 function CryptoDatas() {
     const [UserDatas, setUserDatas] = useState({
-        labels: ['label1', 'label2', 'label3'],
+        labels: [],
         datasets: [
             {
                 label: "User Gained",
                 data: [],
-                backgroundColor: [
-                    "red",
-                  ],
-                borderColor: "red"
             },
         ],
+        options: { 
+            hover: {
+                intersect: true
+            }
+        }
     });
 
     useEffect(() => {
@@ -28,15 +29,28 @@ function CryptoDatas() {
                 datasets: [
                     {
                         label: "Datas",
-                        data: res.map(item => item.price)
+                        data: res.map(item => item.price),
+                        borderColor: "purple",
+                        backgroundColor: "purple",
+                        hoverRadius: 4,
+                        hoverBorderWidth: 5
                     },
+                    {
+                        label: "test",
+                        data: [30000, 30300, 30000, 30000],
+                        borderColor: "red",
+                        backgroundColor: "red"
+                    }
                 ],
                 options: {
                     datasets: {
                         line: {
-                            backgroundColor: "red"
+                            borderColor: "blue"
                         }
                     },
+                    hover: {
+                        intersect: true
+                    }
                 }
             }
 
@@ -46,7 +60,7 @@ function CryptoDatas() {
     }, [])
 
     useEffect(() => {
-        console.log(123)
+       
     }, [UserDatas]);
 
     return (
