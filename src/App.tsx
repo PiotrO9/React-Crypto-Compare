@@ -1,15 +1,20 @@
-import { useState } from 'react'
+import { createContext, useState } from 'react'
 import './App.scss'
 import CryptoDatas from './components/core-components/CryptoDatas'
 import CryptoList from './components/core-components/CryptoList'
+import ActiveCryptoProvider from './context/ActiveCryptoContext'
+
+export const ActiveCryptocurrenciesContext = createContext([]);
 
 function App() {
 
   return (
-    <div className="App">
-      <CryptoList />
-      <CryptoDatas />
-    </div>
+    <ActiveCryptoProvider>
+      <div className="App">
+        <CryptoList />
+        <CryptoDatas />
+      </div>
+    </ActiveCryptoProvider>
   )
 }
 
