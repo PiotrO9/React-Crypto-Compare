@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { GetCoinMarketChart } from '../../utils/CryptoUtils'
 import MarketChartPoint from '../../types/MarketChartPoint'
 import getTimestamps from '../../utils/GetTimeStamps'
+import CryptoBadges from './CryptoBadges'
 
 function CryptoDatas() {
     const [marketDatas, setMarketDatas] = useState();
@@ -56,6 +57,7 @@ function CryptoDatas() {
     return (
         <main>
             <ChartDatas datas={marketDatas}/>
+            <CryptoBadges />
         </main>
     )
 }

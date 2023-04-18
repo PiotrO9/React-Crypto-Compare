@@ -1,5 +1,4 @@
 import './CryptoCurrencyListElement.scss'
-import ActiveCrypto from '../../types/ActiveCrypto'
 
 function CryptoCurrencyListElement(props) {
     function CryptocurrencyClick() {

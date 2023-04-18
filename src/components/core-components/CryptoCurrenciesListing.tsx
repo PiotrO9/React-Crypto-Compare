@@ -16,7 +16,7 @@ function CryptoCurrenciesListing() {
     })
 
     useEffect(() => {
-        console.log(ActiveCryptos)
+        // console.log(ActiveCryptos)
     }, [ActiveCryptos])
 
     function handleCryptocurrencyClick(crypto: ActiveCrypto) {
