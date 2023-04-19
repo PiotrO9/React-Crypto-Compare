@@ -4,11 +4,12 @@ import ActiveCryptoContextType from '../../types/ActiveCryptoContextType'
 import { ActiveCryptoContext } from '../../context/ActiveCryptoContext'
 import CryptoBadge from '../common-components/CryptoBadge'
 
+
 function CryptoBadges() {
     const { ActiveCryptos, AddCrypto } = useContext(ActiveCryptoContext) as ActiveCryptoContextType
 
     useEffect(() => {
-        console.log(ActiveCryptos)
+        
     }, [ActiveCryptos])
 
     const handleCryptoRemove = (cryptoName: string) => {
